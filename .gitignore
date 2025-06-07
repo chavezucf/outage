@@ -2,9 +2,9 @@
 node_modules/
 
 # Build output and logs
-/dist/
 /dist/*
 !/dist/incidents.rss
+!/dist/.gitkeep
 build/
 coverage/
 logs/
