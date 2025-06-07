@@ -5,13 +5,7 @@ const RSS = require('rss');
 const INCIDENTS_DIR = path.join(__dirname, '../data/incidents');
 const INCIDENTS_JSON = path.join(__dirname, '../data/incidents.json');
 const STATUS_JSON = path.join(__dirname, '../data/status.json');
-const INCIDENTS_RSS = path.join(__dirname, '../dist/incidents.rss');
-
-// Ensure output dir exists
-const DIST_DIR = path.join(__dirname, '../dist');
-if (!fs.existsSync(DIST_DIR)) {
-  fs.mkdirSync(DIST_DIR);
-}
+const INCIDENTS_RSS = path.join(__dirname, '../data/incidents.rss');
 
 // Load all incident files
 const files = fs.readdirSync(INCIDENTS_DIR).filter(f => f.endsWith('.json'));
@@ -57,8 +51,8 @@ console.log(`✅ Updated ${STATUS_JSON}.`);
 // === Build RSS feed ===
 const feed = new RSS({
   title: 'Outage Tracker - Recent Incidents',
-  feed_url: '/dist/incidents.rss',
-  site_url: '/', // You can update with your prod URL
+  feed_url: '/data/incidents.rss', // optional: replace with full URL
+  site_url: '/', // optional: replace with full URL
 });
 
 incidents.slice(0, 10).forEach(inc => {
