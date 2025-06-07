@@ -2,8 +2,8 @@ name: Rebuild Incidents & RSS after Incident
 
 on:
   push:
-    paths:
-      - 'data/incidents/*.json'
+    # paths:
+    #   - 'data/incidents/*.json'
     branches:
       - main
 
