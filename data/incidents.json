@@ -1,0 +1,14 @@
+[
+    {
+      "timestamp": "2025-06-05T08:12:00Z",
+      "system": "Payment Processor",
+      "status": "red",
+      "description": "3rd party payment gateway outage."
+    },
+    {
+      "timestamp": "2025-06-03T10:00:00Z",
+      "system": "Learner Center",
+      "status": "yellow",
+      "description": "Slow login response due to DB latency."
+    }
+  ]

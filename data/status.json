@@ -1,0 +1,30 @@
+{
+  "statuses": [
+    {
+      "system": "Enrollment Processor",
+      "status": "green",
+      "lastUpdated": "2025-06-01T10:35:07-04:00"
+    },
+    {
+      "system": "Learner Center",
+      "status": "green",
+      "lastUpdated": "2025-06-02T10:35:07-04:00"
+    },
+    {
+      "system": "Chase Portal",
+      "status": "yellow",
+      "lastUpdated": "2025-06-03T10:35:07-04:00"
+    },
+    {
+      "system": "Payment Processor",
+      "status": "green",
+      "lastUpdated": "2025-06-04T10:35:07-04:00"
+    },
+    {
+      "system": "Sales Tax Engine",
+      "status": "green",
+      "lastUpdated": "2025-06-05T10:35:07-04:00"
+    }
+  ],
+  "lastBuilt": "2025-06-06T14:45:00-04:00"
+}

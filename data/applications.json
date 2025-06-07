@@ -1,0 +1,27 @@
+[
+  {
+    "system": "Enrollment Processor",
+    "businessImpact": ["Enrollments blocked"],
+    "dependentSystems": []
+  },
+  {
+    "system": "Learner Center",
+    "businessImpact": ["Student login issues", "Student lms access issues"],
+    "dependentSystems": ["Payment Processor"]
+  },
+  {
+    "system": "Chase Portal",
+    "businessImpact": ["Enrollments blocked", "Payment processing issues"],
+    "dependentSystems": ["Payment Processor"]
+  },
+  {
+    "system": "Payment Processor",
+    "businessImpact": ["Payments delayed", "Enrollments blocked"],
+    "dependentSystems": ["Sales Tax Engine"]
+  },
+  {
+    "system": "Sales Tax Engine",
+    "businessImpact": ["Payments delayed"],
+    "dependentSystems": ["Payment Processor", "Enrollment Processor", "Learner Center"]
+  }
+]

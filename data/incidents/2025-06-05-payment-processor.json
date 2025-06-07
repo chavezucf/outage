@@ -1,0 +1,6 @@
+{
+    "timestamp": "2025-06-05T08:12:00Z",
+    "system": "Payment Processor",
+    "status": "red",
+    "description": "3rd party payment gateway outage."
+}
