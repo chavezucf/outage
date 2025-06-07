@@ -1,0 +1,11 @@
+{
+    "name": "outage-tracker",
+    "version": "1.0.0",
+    "description": "Outage Dependencies Tracker - Static Status Site",
+    "scripts": {
+      "rebuild-incidents": "node scripts/rebuild-incidents.js"
+    },
+    "dependencies": {
+      "rss": "^1.2.2"
+    }
+  }

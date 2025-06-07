@@ -1,0 +1,36 @@
+name: Rebuild Incidents & RSS after Incident
+
+on:
+  push:
+    paths:
+      - 'data/incidents/*.json'
+    branches:
+      - main
+
+jobs:
+  rebuild:
+    name: Rebuild incidents.json + status.json + RSS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run rebuild script
+        run: npm run rebuild-incidents
+
+      - name: Commit and push updated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/incidents.json data/status.json dist/incidents.rss
+          git commit -m "Auto-update incidents.json, status.json, and RSS [skip ci]" || echo "No changes to commit"
+          git push

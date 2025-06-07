@@ -5,18 +5,40 @@ document.addEventListener('DOMContentLoaded', async () => {
   const allHealthyBtn = document.getElementById('all-healthy');
   const adminMessages = document.getElementById('admin-messages');
   const lastBuiltEl = document.getElementById('last-built');
+  const systemSelect = document.getElementById('system-select');
 
-  // Load lastBuilt from status.json
+  // === Load system list from applications.json ===
+  try {
+    const appsResponse = await fetch('data/applications.json');
+    const appsData = await appsResponse.json();
+    const apps = appsData;
+
+    // Populate system dropdown
+    systemSelect.innerHTML = '<option value="">-- Select System --</option>';
+    apps.forEach(app => {
+      const option = document.createElement('option');
+      option.value = app.system;
+      option.textContent = app.system;
+      systemSelect.appendChild(option);
+    });
+
+    console.log('Loaded systems:', apps.map(a => a.system));
+  } catch (err) {
+    console.error('Error loading applications.json:', err);
+    systemSelect.innerHTML = '<option value="">Error loading systems</option>';
+  }
+
+  // === Load lastBuilt from status.json ===
   try {
     const statusResponse = await fetch('data/status.json');
     const statusData = await statusResponse.json();
-    lastBuiltEl.textContent = new Date(statusData.lastBuilt).toLocaleString() || 'Unknown';
+    lastBuiltEl.textContent = statusData.lastBuilt || 'Unknown';
   } catch (err) {
     console.error('Error loading status.json:', err);
     lastBuiltEl.textContent = 'Error';
   }
 
-  // Submit New Incident
+  // === Submit New Incident ===
   incidentForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(incidentForm);
@@ -47,16 +69,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Generated Incident PR:', { filename, fileContent });
   });
 
-  // Mark All Healthy
+  // === Mark All Healthy ===
   allHealthyBtn.addEventListener('click', async () => {
     const timestamp = new Date().toISOString();
 
-    // Load current statuses
     try {
       const statusResponse = await fetch('data/status.json');
       const statusData = await statusResponse.json();
 
-      // Set all to green
+      // Set all statuses to green
       const updatedStatuses = statusData.statuses.map(s => ({
         ...s,
         status: 'green',
@@ -87,10 +108,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 });
 
-// Build GitHub PR URL — basic starter
+// === Build GitHub PR URL — basic starter ===
 function buildGitHubPRURL(filename, content, title) {
-  const repo = 'your-org/your-repo'; // TODO: configure
-  const branch = 'main'; // or 'staging' if you prefer
+  const repo = 'chavezucf/outage'; // ✅ your repo
+  const branch = 'main'; // or 'staging'
   const baseURL = `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(filename)}&value=${encodeURIComponent(content)}&title=${encodeURIComponent(title)}`;
   return baseURL;
 }
