@@ -2,7 +2,7 @@
   "statuses": [
     {
       "system": "Enrollment Processor",
-      "status": "red",
+      "status": "green",
       "lastUpdated": "2025-06-08T21:06:04.323Z"
     },
     {
@@ -27,5 +27,5 @@
     }
   ],
   "lastBuilt": "2025-06-08T21:06:04.323Z",
-  "lastHealthy": "2025-06-08T20:56:17.908Z"
+  "lastHealthy": "2025-06-07T20:56:17.908Z"
 }

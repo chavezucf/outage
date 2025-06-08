@@ -1,4 +1,4 @@
-name: Rebuild Incidents & RSS after Incident
+name: Rebuild Incidents & Trigger Deploy
 
 on:
   push:
@@ -9,24 +9,27 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
+  actions: write
 
 jobs:
-  prepare:
-    name: Rebuild incidents.json + status.json + RSS
+  rebuild:
+    name: Rebuild incidents.json + status.json + RSS + Commit + Trigger Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
+
       - name: Install dependencies
         run: npm ci
+
       - name: Run rebuild script
         run: npm run rebuild-incidents
+
       - name: Commit and push updated files
         run: |
           git config user.name "github-actions[bot]"
@@ -35,48 +38,12 @@ jobs:
           git commit -m "Auto-update incidents.json, status.json, and RSS [skip ci]" || echo "No changes to commit"
           git push
 
-      - name: Output latest commit SHA
-        id: get_commit
-        run: echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
-
-  deploy:
-    needs: prepare
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Wait for latest commit to be available
+      - name: Trigger Deploy Workflow
         env:
-          EXPECTED_SHA: ${{ needs.prepare.outputs.commit_sha }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          for i in {1..5}; do
-            git fetch origin main
-            REMOTE_SHA=$(git rev-parse origin/main)
-            echo "Expected: $EXPECTED_SHA, Remote: $REMOTE_SHA"
-            if [ "$REMOTE_SHA" = "$EXPECTED_SHA" ]; then
-              echo "Latest commit not yet available. Waiting..."
-              sleep $i
-            else
-              echo "Latest commit found, continuing."
-              break
-            fi
-          done
-          git checkout main
-          git reset --hard origin/main
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          enablement: true
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            https://api.github.com/repos/chavezucf/outage/actions/workflows/deploy.yml/dispatches \
+            -d '{"ref":"main"}'
