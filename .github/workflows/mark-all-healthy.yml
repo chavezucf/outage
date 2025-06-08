@@ -1,0 +1,35 @@
+name: Mark All Systems Healthy
+
+on:
+  workflow_dispatch: # manual trigger (via UI or GitHub API)
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  mark-healthy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Mark All Healthy script
+        run: npm run mark-all-healthy
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "Mark all systems healthy"
+          title: "Mark all systems healthy"
+          body: "Automated PR to mark all systems healthy."
+          branch: mark-all-healthy-${{ github.run_id }}

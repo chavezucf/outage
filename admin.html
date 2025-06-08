@@ -26,8 +26,8 @@
         <label>
           Status:
           <select name="status">
-            <option value="red">Red (Outage)</option>
             <option value="yellow">Yellow (Degraded)</option>
+            <option value="red">Red (Outage)</option>
           </select>
         </label>
 
@@ -42,7 +42,7 @@
 
     <section>
       <h2>Quick Actions</h2>
-      <button id="all-healthy">Mark All Systems Healthy</button>
+      <button id="all-healthy" type="button" onclick="triggerMarkAllHealthy()">Mark All Systems Healthy</button>
     </section>
 
     <div id="admin-messages">[Messages will appear here]</div>

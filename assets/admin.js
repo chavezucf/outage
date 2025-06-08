@@ -1,8 +1,12 @@
 console.log('Admin JS loaded.');
 
+// === CONFIG ===
+const REPO = 'chavezucf/outage';
+const BRANCH = 'main';
+const MARK_ALL_HEALTHY_WORKFLOW = 'mark-all-healthy.yml';
+
 document.addEventListener('DOMContentLoaded', async () => {
   const incidentForm = document.getElementById('incident-form');
-  const allHealthyBtn = document.getElementById('all-healthy');
   const adminMessages = document.getElementById('admin-messages');
   const lastBuiltEl = document.getElementById('last-built');
   const systemSelect = document.getElementById('system-select');
@@ -68,50 +72,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     console.log('Generated Incident PR:', { filename, fileContent });
   });
-
-  // === Mark All Healthy ===
-  allHealthyBtn.addEventListener('click', async () => {
-    const timestamp = new Date().toISOString();
-
-    try {
-      const statusResponse = await fetch('data/status.json');
-      const statusData = await statusResponse.json();
-
-      // Set all statuses to green
-      const updatedStatuses = statusData.statuses.map(s => ({
-        ...s,
-        status: 'green',
-        lastUpdated: timestamp
-      }));
-
-      const updatedStatusJson = {
-        statuses: updatedStatuses,
-        lastBuilt: timestamp
-      };
-
-      const fileContent = JSON.stringify(updatedStatusJson, null, 2);
-      const prTitle = `Mark all systems healthy (${timestamp.slice(0,10)})`;
-
-      const prURL = buildGitHubPRURL('data/status.json', fileContent, prTitle);
-
-      adminMessages.innerHTML = `
-        <p>Generated PR to mark all systems healthy:</p>
-        <p><a href="${prURL}" target="_blank">${prURL}</a></p>
-      `;
-
-      console.log('Generated All Healthy PR:', { fileContent });
-
-    } catch (err) {
-      console.error('Error loading status.json:', err);
-      adminMessages.innerHTML = '<p style="color:red;">Error loading status.json.</p>';
-    }
-  });
 });
 
-// === Build GitHub PR URL — basic starter ===
+// === Build GitHub PR URL for NEW incident ===
 function buildGitHubPRURL(filename, content, title) {
-  const repo = 'chavezucf/outage'; // ✅ your repo
-  const branch = 'main'; // or 'staging'
-  const baseURL = `https://github.com/${repo}/new/${branch}?filename=${encodeURIComponent(filename)}&value=${encodeURIComponent(content)}&title=${encodeURIComponent(title)}`;
-  return baseURL;
+  return `https://github.com/${REPO}/new/${BRANCH}?filename=${encodeURIComponent(filename)}&value=${encodeURIComponent(content)}&title=${encodeURIComponent(title)}`;
+}
+
+// === Build GitHub Actions Workflow URL ===
+function buildWorkflowURL() {
+  return `https://github.com/${REPO}/actions/workflows/${MARK_ALL_HEALTHY_WORKFLOW}`;
+}
+
+// === Trigger Mark All Healthy (just opens Actions tab) ===
+function triggerMarkAllHealthy() {
+  const workflowURL = buildWorkflowURL();
+  window.open(workflowURL, '_blank');
+
+  document.getElementById('admin-messages').innerHTML = `
+    <p>Opened GitHub Actions tab to run "Mark All Healthy" workflow:</p>
+    <p><a href="${workflowURL}" target="_blank">${workflowURL}</a></p>
+  `;
+
+  console.log('Opened workflow URL:', workflowURL);
 }

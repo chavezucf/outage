@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "Outage Dependencies Tracker - Static Status Site",
     "scripts": {
-      "rebuild-incidents": "node scripts/rebuild-incidents.js"
+      "rebuild-incidents": "node scripts/rebuild-incidents.js",
+      "mark-all-healthy": "node scripts/mark-all-healthy.js"
     },
     "dependencies": {
       "rss": "^1.2.2"
