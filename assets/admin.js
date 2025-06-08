@@ -6,6 +6,7 @@ const BRANCH = 'main';
 const MARK_ALL_HEALTHY_WORKFLOW = 'mark-all-healthy.yml';
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const versionParam = `v=${new Date().getTime()}`;
   const incidentForm = document.getElementById('incident-form');
   const adminMessages = document.getElementById('admin-messages');
   const lastBuiltEl = document.getElementById('last-built');
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // === Load system list from applications.json ===
   try {
-    const appsResponse = await fetch('data/applications.json');
+    const appsResponse = await fetch(`data/applications.json${versionParam}`);
     const appsData = await appsResponse.json();
     const apps = appsData;
 
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // === Load lastBuilt from status.json ===
   try {
-    const statusResponse = await fetch('data/status.json');
+    const statusResponse = await fetch(`data/status.json${versionParam}`);
     const statusData = await statusResponse.json();
     lastBuiltEl.textContent = statusData.lastBuilt ? new Date(statusData.lastBuilt).toLocaleString() : 'Unknown';
   } catch (err) {

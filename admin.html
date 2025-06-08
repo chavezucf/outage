@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Admin - Outage Dependencies Tracker</title>
-  <link rel="stylesheet" href="assets/style.css" />
+
 </head>
 <body class="admin-page">
 
@@ -52,6 +52,19 @@
     Internal use only. Last built: <span id="last-built">Loading...</span>
   </footer>
 
-  <script src="assets/admin.js"></script>
+  <script>
+    fetch('data/status.json?v=' + new Date().getTime())
+      .then(r => r.json())
+      .then(status => {
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = `assets/style.css?v=${encodeURIComponent(status.lastBuilt)}`;
+        document.head.appendChild(css);
+
+        const script = document.createElement('script');
+        script.src = `assets/admin.js?v=${encodeURIComponent(status.lastBuilt)}`;
+        document.head.appendChild(script);
+      });
+  </script>
 </body>
 </html>

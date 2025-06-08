@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Outage Dependencies Tracker</title>
-  <link rel="stylesheet" href="assets/style.css" />
+
 </head>
 <body>
 
@@ -39,6 +39,25 @@
     </p>
   </footer>
 
-  <script src="assets/dashboard.js"></script>
+  <script>
+    fetch('data/status.json?v=' + new Date().getTime())
+      .then(r => r.json())
+      .then(status => {
+        const css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = `assets/style.css?v=${encodeURIComponent(status.lastBuilt)}`;
+        document.head.appendChild(css);
+
+        const script = document.createElement('script');
+        script.src = `assets/dashboard.js?v=${encodeURIComponent(status.lastBuilt)}`;
+        document.head.appendChild(script);
+      });
+  </script>
+  <script>
+    setInterval(() => {
+      console.log('Auto-reloading page...');
+      window.location.reload();
+    }, 300000); // 5 minutes
+  </script>
 </body>
 </html>

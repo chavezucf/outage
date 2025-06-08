@@ -1,6 +1,7 @@
 const DAILY_BAR_COUNT = 50;
 
 document.addEventListener('DOMContentLoaded', async () => {
+  const versionParam = `v=${new Date().getTime()}`;
   const appContainer = document.getElementById('app-list');
   const lastBuiltEl = document.getElementById('last-built');
   const lastIncidentEl = document.getElementById('last-incident');
@@ -11,18 +12,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     // Load applications.json
-    const appsResponse = await fetch('data/applications.json');
+    const appsResponse = await fetch(`data/applications.json${versionParam}`);
     const appsData = await appsResponse.json();
     const apps = appsData;
 
     // Load status.json
-    const statusResponse = await fetch('data/status.json');
+    const statusResponse = await fetch(`data/status.json${versionParam}`);
     const statusData = await statusResponse.json();
     const statuses = statusData.statuses;
     const lastBuilt = new Date(statusData.lastBuilt).toLocaleString() || 'Unknown';
 
     // Load incidents.json
-    const incidentsResponse = await fetch('data/incidents.json');
+    const incidentsResponse = await fetch(`data/incidents.json${versionParam}`);
     const incidents = await incidentsResponse.json();
 
     // Compute last incident date
