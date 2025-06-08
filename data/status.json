@@ -3,29 +3,29 @@
     {
       "system": "Enrollment Processor",
       "status": "green",
-      "lastUpdated": "2025-06-08T20:47:38.892Z"
+      "lastUpdated": "2025-06-08T20:56:17.908Z"
     },
     {
       "system": "Learner Center",
       "status": "green",
-      "lastUpdated": "2025-06-08T20:47:38.892Z"
+      "lastUpdated": "2025-06-08T20:56:17.908Z"
     },
     {
       "system": "Chase Portal",
       "status": "green",
-      "lastUpdated": "2025-06-08T20:47:38.892Z"
+      "lastUpdated": "2025-06-08T20:56:17.908Z"
     },
     {
       "system": "Payment Processor",
-      "status": "red",
-      "lastUpdated": "2025-06-08T20:49:15.397Z"
+      "status": "green",
+      "lastUpdated": "2025-06-08T20:56:17.908Z"
     },
     {
       "system": "Sales Tax Engine",
       "status": "green",
-      "lastUpdated": "2025-06-08T20:47:38.892Z"
+      "lastUpdated": "2025-06-08T20:56:17.908Z"
     }
   ],
-  "lastBuilt": "2025-06-08T20:49:15.397Z",
-  "lastHealthy": "2025-06-08T20:47:38.892Z"
+  "lastBuilt": "2025-06-08T20:56:17.908Z",
+  "lastHealthy": "2025-06-08T20:56:17.908Z"
 }
