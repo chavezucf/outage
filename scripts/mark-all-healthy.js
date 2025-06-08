@@ -16,7 +16,8 @@ const updatedStatuses = statusData.statuses.map(s => ({
 
 const updatedStatusJson = {
   statuses: updatedStatuses,
-  lastBuilt: timestamp
+  lastBuilt: timestamp,
+  lastHealthy: timestamp
 };
 
 // Write updated status.json

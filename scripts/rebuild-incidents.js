@@ -18,20 +18,28 @@ files.forEach(file => {
   incidents.push(data);
 });
 
-// Sort newest first
-incidents.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-
-// Write incidents.json
-fs.writeFileSync(INCIDENTS_JSON, JSON.stringify(incidents, null, 2));
-console.log(`✅ Updated ${INCIDENTS_JSON} with ${incidents.length} incidents.`);
-
-// === Update status.json ===
+// Load status.json to get lastHealthy
 const statusData = JSON.parse(fs.readFileSync(STATUS_JSON, 'utf-8'));
+const lastHealthy = statusData.lastHealthy ? new Date(statusData.lastHealthy) : null;
+
+// Filter incidents to only those after lastHealthy
+let filteredIncidents = incidents;
+if (lastHealthy) {
+  filteredIncidents = incidents.filter(inc => new Date(inc.timestamp) > lastHealthy);
+}
+
+// Sort newest first
+filteredIncidents.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+// Write incidents.json (only after lastHealthy)
+fs.writeFileSync(INCIDENTS_JSON, JSON.stringify(filteredIncidents, null, 2));
+console.log(`✅ Updated ${INCIDENTS_JSON} with ${filteredIncidents.length} incidents after lastHealthy.`);
+
 const currentStatuses = statusData.statuses;
 
-// For each system, find most recent incident (if any)
+// For each system, find most recent incident after lastHealthy (if any)
 currentStatuses.forEach(statusEntry => {
-  const latestIncident = incidents.find(inc => inc.system === statusEntry.system);
+  const latestIncident = filteredIncidents.find(inc => inc.system === statusEntry.system);
   if (latestIncident) {
     statusEntry.status = latestIncident.status;
     statusEntry.lastUpdated = new Date().toISOString();
@@ -55,7 +63,7 @@ const feed = new RSS({
   site_url: '/', // optional: replace with full URL
 });
 
-incidents.slice(0, 10).forEach(inc => {
+filteredIncidents.slice(0, 10).forEach(inc => {
   feed.item({
     title: `[${inc.status.toUpperCase()}] ${inc.system}`,
     description: inc.description,

@@ -26,9 +26,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const incidents = await incidentsResponse.json();
 
     // Compute last incident date
-    const lastIncidentDate = incidents.length > 0
-      ? new Date(Math.max(...incidents.map(i => new Date(i.timestamp).getTime()))).toLocaleString()
-      : 'No incidents';
+    let lastIncidentDate = 'None';
+    if (incidents.length > 0) {
+      lastIncidentDate = new Date(incidents[0].timestamp).toLocaleString();
+    }
 
     // Update "last checked", "last built", "last incident"
     lastCheckedEl.textContent = lastBuilt;

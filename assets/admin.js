@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const statusResponse = await fetch('data/status.json');
     const statusData = await statusResponse.json();
-    lastBuiltEl.textContent = statusData.lastBuilt || 'Unknown';
+    lastBuiltEl.textContent = statusData.lastBuilt ? new Date(statusData.lastBuilt).toLocaleString() : 'Unknown';
   } catch (err) {
     console.error('Error loading status.json:', err);
     lastBuiltEl.textContent = 'Error';

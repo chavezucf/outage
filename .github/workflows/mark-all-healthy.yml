@@ -26,10 +26,10 @@ jobs:
       - name: Run Mark All Healthy script
         run: npm run mark-all-healthy
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          commit-message: "Mark all systems healthy"
-          title: "Mark all systems healthy"
-          body: "Automated PR to mark all systems healthy."
-          branch: mark-all-healthy-${{ github.run_id }}
+      - name: Commit and push updated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/status.json
+          git commit -m "Mark all systems healthy [bot]" || echo "No changes to commit"
+          git push
