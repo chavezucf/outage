@@ -33,3 +33,17 @@ jobs:
           git add data/status.json
           git commit -m "Mark all systems healthy [bot]" || echo "No changes to commit"
           git push
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          enablement: true
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
