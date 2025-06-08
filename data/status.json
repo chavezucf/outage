@@ -7,8 +7,8 @@
     },
     {
       "system": "Learner Center",
-      "status": "green",
-      "lastUpdated": "2025-06-08T19:37:00.221Z"
+      "status": "yellow",
+      "lastUpdated": "2025-06-08T19:38:42.677Z"
     },
     {
       "system": "Chase Portal",
@@ -17,14 +17,14 @@
     },
     {
       "system": "Payment Processor",
-      "status": "green",
-      "lastUpdated": "2025-06-08T19:37:00.221Z"
+      "status": "red",
+      "lastUpdated": "2025-06-08T19:38:42.677Z"
     },
     {
       "system": "Sales Tax Engine",
-      "status": "green",
-      "lastUpdated": "2025-06-08T19:37:00.221Z"
+      "status": "yellow",
+      "lastUpdated": "2025-06-08T19:38:42.677Z"
     }
   ],
-  "lastBuilt": "2025-06-08T19:37:00.221Z"
+  "lastBuilt": "2025-06-08T19:38:42.678Z"
 }
