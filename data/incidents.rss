@@ -4,43 +4,13 @@
         <description><![CDATA[Outage Tracker - Recent Incidents]]></description>
         <link>/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 08 Jun 2025 19:38:42 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 08 Jun 2025 19:59:30 GMT</lastBuildDate>
         <atom:link href="/data/incidents.rss" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[[YELLOW] Sales Tax Engine]]></title>
-            <description><![CDATA[Error with Avalara ]]></description>
-            <guid isPermaLink="false">[YELLOW] Sales Tax Engine</guid>
-            <pubDate>Sun, 08 Jun 2025 19:38:27 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[[YELLOW] Sales Tax Engine]]></title>
-            <description><![CDATA[Issue]]></description>
-            <guid isPermaLink="false">[YELLOW] Sales Tax Engine</guid>
-            <pubDate>Sat, 07 Jun 2025 18:52:42 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[[RED] Payment Processor]]></title>
-            <description><![CDATA[Stuff]]></description>
-            <guid isPermaLink="false">[RED] Payment Processor</guid>
-            <pubDate>Sat, 07 Jun 2025 18:32:13 GMT</pubDate>
-        </item>
-        <item>
             <title><![CDATA[[YELLOW] Learner Center]]></title>
-            <description><![CDATA[There is an issue]]></description>
+            <description><![CDATA[Login issues]]></description>
             <guid isPermaLink="false">[YELLOW] Learner Center</guid>
-            <pubDate>Sat, 07 Jun 2025 18:10:01 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[[RED] Payment Processor]]></title>
-            <description><![CDATA[3rd party payment gateway outage.]]></description>
-            <guid isPermaLink="false">[RED] Payment Processor</guid>
-            <pubDate>Thu, 05 Jun 2025 08:12:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[[YELLOW] Learner Center]]></title>
-            <description><![CDATA[Slow login response due to DB latency.]]></description>
-            <guid isPermaLink="false">[YELLOW] Learner Center</guid>
-            <pubDate>Tue, 03 Jun 2025 10:00:00 GMT</pubDate>
+            <pubDate>Sun, 08 Jun 2025 19:59:15 GMT</pubDate>
         </item>
     </channel>
 </rss>
