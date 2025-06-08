@@ -1,5 +1,11 @@
 [
   {
+    "timestamp": "2025-06-08T20:49:01.847Z",
+    "system": "Payment Processor",
+    "status": "red",
+    "description": "Payment is really really down "
+  },
+  {
     "timestamp": "2025-06-08T20:31:34.998Z",
     "system": "Learner Center",
     "status": "yellow",
