@@ -1,5 +1,11 @@
 [
   {
+    "timestamp": "2025-06-08T21:05:50.706Z",
+    "system": "Enrollment Processor",
+    "status": "red",
+    "description": "BIG TIME"
+  },
+  {
     "timestamp": "2025-06-08T20:49:01.847Z",
     "system": "Payment Processor",
     "status": "red",
