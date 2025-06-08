@@ -35,6 +35,10 @@ jobs:
           git commit -m "Auto-update incidents.json, status.json, and RSS [skip ci]" || echo "No changes to commit"
           git push
 
+      - name: Output latest commit SHA
+        id: get_commit
+        run: echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+
   deploy:
     needs: prepare
     runs-on: ubuntu-latest
@@ -47,11 +51,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Pull latest changes from remote
+      - name: Wait for latest commit to be available
+        env:
+          EXPECTED_SHA: ${{ needs.prepare.outputs.commit_sha }}
         run: |
-          git fetch origin ${{ github.ref }}
-          git checkout ${{ github.ref }}
-          git reset --hard origin/${{ github.ref_name }}
+          for i in {1..5}; do
+            git fetch origin main
+            REMOTE_SHA=$(git rev-parse origin/main)
+            echo "Expected: $EXPECTED_SHA, Remote: $REMOTE_SHA"
+            if [ "$REMOTE_SHA" = "$EXPECTED_SHA" ]; then
+              echo "Latest commit not yet available. Waiting..."
+              sleep $i
+            else
+              echo "Latest commit found, continuing."
+              break
+            fi
+          done
+          git checkout main
+          git reset --hard origin/main
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
