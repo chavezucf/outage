@@ -1,6 +1,0 @@
-{
-    "timestamp": "2025-06-03T10:00:00Z",
-    "system": "Learner Center",
-    "status": "yellow",
-    "description": "Slow login response due to DB latency."
-  }

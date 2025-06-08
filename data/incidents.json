@@ -1,8 +1,44 @@
 [
   {
-    "timestamp": "2025-06-08T19:59:15.515Z",
+    "timestamp": "2025-06-08T19:38:27.741Z",
+    "system": "Sales Tax Engine",
+    "status": "yellow",
+    "description": "Error with Avalara "
+  },
+  {
+    "timestamp": "2025-06-07T18:52:42.480Z",
+    "system": "Sales Tax Engine",
+    "status": "yellow",
+    "description": "Issue"
+  },
+  {
+    "timestamp": "2025-06-07T18:32:13.490Z",
+    "system": "Payment Processor",
+    "status": "red",
+    "description": "Stuff"
+  },
+  {
+    "timestamp": "2025-06-07T18:10:01.967Z",
+    "system": "Learner Center",
+    "status": "yellow",
+    "description": "There is an issue"
+  },
+  {
+    "timestamp": "2025-06-06T19:59:15.515Z",
     "system": "Learner Center",
     "status": "yellow",
     "description": "Login issues"
+  },
+  {
+    "timestamp": "2025-06-05T08:12:00Z",
+    "system": "Payment Processor",
+    "status": "red",
+    "description": "3rd party payment gateway outage."
+  },
+  {
+    "timestamp": "2025-06-03T10:00:00Z",
+    "system": "Learner Center",
+    "status": "yellow",
+    "description": "Slow login response due to DB latency."
   }
 ]

@@ -137,7 +137,7 @@ function renderAppCard(app, incidents) {
           ${
             systemIncidents = getRecentIncidents(system, incidents), 
             systemIncidents.length > 0 ? systemIncidents.map(inc => `
-              <li>${new Date(inc.timestamp).toLocaleDateString()}: ${inc.status.toUpperCase()} — ${inc.description}</li>
+              <li>${new Date(inc.timestamp).toLocaleDateString()}: ${colorToStatus(inc.status)} — ${inc.description}</li>
             `).join('') : '<li>None</li>'
           }
         </ul>
@@ -165,6 +165,12 @@ function renderAppCard(app, incidents) {
   card.appendChild(footer);
 
   document.getElementById('app-list').appendChild(card);
+}
+
+function colorToStatus(color) {
+  if (color === 'green') return 'Operational';
+  if (color === 'yellow') return 'Degraded';
+  if (color === 'red') return 'Outage';
 }
 
 function generateDayBars(system, incidents) {
