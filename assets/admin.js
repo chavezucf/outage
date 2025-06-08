@@ -6,7 +6,7 @@ const BRANCH = 'main';
 const MARK_ALL_HEALTHY_WORKFLOW = 'mark-all-healthy.yml';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const versionParam = `v=${new Date().getTime()}`;
+  const versionParam = `?v=${new Date().getTime()}`;
   const incidentForm = document.getElementById('incident-form');
   const adminMessages = document.getElementById('admin-messages');
   const lastBuiltEl = document.getElementById('last-built');

@@ -1,7 +1,7 @@
 const DAILY_BAR_COUNT = 50;
 
 document.addEventListener('DOMContentLoaded', async () => {
-  const versionParam = `v=${new Date().getTime()}`;
+  const versionParam = `?v=${new Date().getTime()}`;
   const appContainer = document.getElementById('app-list');
   const lastBuiltEl = document.getElementById('last-built');
   const lastIncidentEl = document.getElementById('last-incident');
