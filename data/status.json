@@ -12,13 +12,13 @@
     },
     {
       "system": "Chase Portal",
-      "status": "green",
-      "lastUpdated": "2025-06-09T13:52:40.573Z"
+      "status": "red",
+      "lastUpdated": "2025-06-09T21:18:30.233Z"
     },
     {
       "system": "Payment Processor",
       "status": "yellow",
-      "lastUpdated": "2025-06-09T21:17:59.319Z"
+      "lastUpdated": "2025-06-09T21:18:30.233Z"
     },
     {
       "system": "Sales Tax Engine",
@@ -26,6 +26,6 @@
       "lastUpdated": "2025-06-09T13:52:40.573Z"
     }
   ],
-  "lastBuilt": "2025-06-09T21:17:59.319Z",
+  "lastBuilt": "2025-06-09T21:18:30.233Z",
   "lastHealthy": "2025-06-09T13:52:40.573Z"
 }

@@ -1,5 +1,11 @@
 [
   {
+    "timestamp": "2025-06-09T21:18:15.708Z",
+    "system": "Chase Portal",
+    "status": "red",
+    "description": "ERROR"
+  },
+  {
     "timestamp": "2025-06-09T21:17:29.254Z",
     "system": "Payment Processor",
     "status": "yellow",
