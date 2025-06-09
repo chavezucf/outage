@@ -17,8 +17,8 @@
     },
     {
       "system": "Payment Processor",
-      "status": "green",
-      "lastUpdated": "2025-06-09T13:26:14.591Z"
+      "status": "red",
+      "lastUpdated": "2025-06-09T13:49:16.528Z"
     },
     {
       "system": "Sales Tax Engine",
@@ -26,6 +26,6 @@
       "lastUpdated": "2025-06-09T13:26:14.591Z"
     }
   ],
-  "lastBuilt": "2025-06-09T13:26:14.591Z",
+  "lastBuilt": "2025-06-09T13:49:16.528Z",
   "lastHealthy": "2025-06-09T13:26:14.591Z"
 }
