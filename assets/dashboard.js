@@ -1,6 +1,12 @@
 const DAILY_BAR_COUNT = 50;
 
-document.addEventListener('DOMContentLoaded', async () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mainDashboard);
+} else {
+  mainDashboard();
+}
+
+async function mainDashboard() {
   const versionParam = `?v=${new Date().getTime()}`;
   const appContainer = document.getElementById('app-list');
   const lastBuiltEl = document.getElementById('last-built');
@@ -70,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Error loading data:', err);
     appContainer.innerHTML = '<div class="error">Failed to load application data.</div>';
   }
-});
+}
 
 function computeOverallStatus(apps) {
   if (apps.some(app => app.status === 'red')) {

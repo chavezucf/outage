@@ -5,7 +5,13 @@ const REPO = 'chavezucf/outage';
 const BRANCH = 'main';
 const MARK_ALL_HEALTHY_WORKFLOW = 'mark-all-healthy.yml';
 
-document.addEventListener('DOMContentLoaded', async () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mainDashboard);
+} else {
+  mainDashboard();
+}
+
+async function mainDashboard() {
   const versionParam = `?v=${new Date().getTime()}`;
   const incidentForm = document.getElementById('incident-form');
   const adminMessages = document.getElementById('admin-messages');
@@ -72,8 +78,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     `;
 
     console.log('Generated Incident PR:', { filename, fileContent });
-  });
-});
+  }); 
+}
 
 // === Build GitHub PR URL for NEW incident ===
 function buildGitHubPRURL(filename, content, title) {
