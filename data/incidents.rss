@@ -4,8 +4,14 @@
         <description><![CDATA[Outage Tracker - Recent Incidents]]></description>
         <link>/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 09 Jun 2025 00:17:33 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Jun 2025 13:17:30 GMT</lastBuildDate>
         <atom:link href="/data/incidents.rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[[YELLOW] Sales Tax Engine]]></title>
+            <description><![CDATA[Avalara is down]]></description>
+            <guid isPermaLink="false">[YELLOW] Sales Tax Engine</guid>
+            <pubDate>Mon, 09 Jun 2025 13:17:09 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[[YELLOW] Enrollment Processor]]></title>
             <description><![CDATA[Enrollments slow]]></description>

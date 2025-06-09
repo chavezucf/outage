@@ -22,10 +22,10 @@
     },
     {
       "system": "Sales Tax Engine",
-      "status": "green",
-      "lastUpdated": "2025-06-09T00:26:09.881Z"
+      "status": "yellow",
+      "lastUpdated": "2025-06-09T13:17:30.599Z"
     }
   ],
-  "lastBuilt": "2025-06-09T00:26:09.881Z",
+  "lastBuilt": "2025-06-09T13:17:30.599Z",
   "lastHealthy": "2025-06-09T00:26:09.881Z"
 }
