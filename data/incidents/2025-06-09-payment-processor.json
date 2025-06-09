@@ -1,0 +1,6 @@
+{
+  "timestamp": "2025-06-09T13:48:59.626Z",
+  "system": "Payment Processor",
+  "status": "red",
+  "description": "DB is down"
+}
