@@ -12,7 +12,7 @@ if (document.readyState === 'loading') {
 }
 
 async function mainDashboard() {
-  const versionParam = `?v=${new Date().getTime()}`;
+  const versionParam = window.dashboardVersionParam || `?v=${new Date().getTime()}`;
   const incidentForm = document.getElementById('incident-form');
   const adminMessages = document.getElementById('admin-messages');
   const lastBuiltEl = document.getElementById('last-built');

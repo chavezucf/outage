@@ -56,15 +56,21 @@
     fetch('data/status.json?v=' + new Date().getTime())
       .then(r => r.json())
       .then(status => {
+        const versionParam = '?v=' + encodeURIComponent(status.lastBuilt);
+        window.dashboardVersionParam = versionParam; // global param
+
+        // Load CSS
         const css = document.createElement('link');
         css.rel = 'stylesheet';
-        css.href = `assets/style.css?v=${encodeURIComponent(status.lastBuilt)}`;
+        css.href = `assets/style.css${versionParam}`;
         document.head.appendChild(css);
 
+        // Load JS
         const script = document.createElement('script');
-        script.src = `assets/admin.js?v=${encodeURIComponent(status.lastBuilt)}`;
+        script.src = `assets/admin.js${versionParam}`;
         document.head.appendChild(script);
       });
   </script>
+
 </body>
 </html>
