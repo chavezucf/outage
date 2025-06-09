@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Admin - Outage Dependencies Tracker</title>
-
+  <link rel="stylesheet" href="assets/style.css?v=20250608">
 </head>
 <body class="admin-page">
 
@@ -58,13 +58,7 @@
       .then(status => {
         const versionParam = '?v=' + encodeURIComponent(status.lastBuilt);
         window.dashboardVersionParam = versionParam; // global param
-
-        // Load CSS
-        const css = document.createElement('link');
-        css.rel = 'stylesheet';
-        css.href = `assets/style.css${versionParam}`;
-        document.head.appendChild(css);
-
+        
         // Load JS
         const script = document.createElement('script');
         script.src = `assets/admin.js${versionParam}`;
