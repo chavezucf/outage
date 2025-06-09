@@ -1,5 +1,11 @@
 [
   {
+    "timestamp": "2025-06-09T00:17:20.573Z",
+    "system": "Enrollment Processor",
+    "status": "yellow",
+    "description": "Enrollments slow"
+  },
+  {
     "timestamp": "2025-06-08T21:40:27.208Z",
     "system": "Learner Center",
     "status": "yellow",

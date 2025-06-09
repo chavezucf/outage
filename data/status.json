@@ -2,8 +2,8 @@
   "statuses": [
     {
       "system": "Enrollment Processor",
-      "status": "green",
-      "lastUpdated": "2025-06-09T00:05:59.191Z"
+      "status": "yellow",
+      "lastUpdated": "2025-06-09T00:17:33.982Z"
     },
     {
       "system": "Learner Center",
@@ -26,6 +26,6 @@
       "lastUpdated": "2025-06-09T00:05:59.191Z"
     }
   ],
-  "lastBuilt": "2025-06-09T00:05:59.191Z",
+  "lastBuilt": "2025-06-09T00:17:33.982Z",
   "lastHealthy": "2025-06-09T00:05:59.191Z"
 }

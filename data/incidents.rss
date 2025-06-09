@@ -4,8 +4,14 @@
         <description><![CDATA[Outage Tracker - Recent Incidents]]></description>
         <link>/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 08 Jun 2025 21:40:40 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Jun 2025 00:17:33 GMT</lastBuildDate>
         <atom:link href="/data/incidents.rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[[YELLOW] Enrollment Processor]]></title>
+            <description><![CDATA[Enrollments slow]]></description>
+            <guid isPermaLink="false">[YELLOW] Enrollment Processor</guid>
+            <pubDate>Mon, 09 Jun 2025 00:17:20 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[[YELLOW] Learner Center]]></title>
             <description><![CDATA[LC Login is Down]]></description>
