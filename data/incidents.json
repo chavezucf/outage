@@ -1,5 +1,11 @@
 [
   {
+    "timestamp": "2025-06-09T13:19:58.206Z",
+    "system": "Learner Center",
+    "status": "red",
+    "description": "LC is down"
+  },
+  {
     "timestamp": "2025-06-09T13:17:09.863Z",
     "system": "Sales Tax Engine",
     "status": "yellow",
