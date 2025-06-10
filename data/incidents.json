@@ -1,5 +1,11 @@
 [
   {
+    "timestamp": "2025-06-10T19:00:39.467Z",
+    "system": "Enrollment Processor",
+    "status": "red",
+    "description": "No enrollments "
+  },
+  {
     "timestamp": "2025-06-09T21:18:15.708Z",
     "system": "Chase Portal",
     "status": "red",
