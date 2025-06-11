@@ -1,5 +1,11 @@
 [
   {
+    "timestamp": "2025-06-11T13:40:22.906Z",
+    "system": "Learner Center",
+    "status": "yellow",
+    "description": "No Login"
+  },
+  {
     "timestamp": "2025-06-11T13:35:45.012Z",
     "system": "Chase Portal",
     "status": "red",

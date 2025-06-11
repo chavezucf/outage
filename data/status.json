@@ -7,8 +7,8 @@
     },
     {
       "system": "Learner Center",
-      "status": "green",
-      "lastUpdated": "2025-06-11T13:36:52.616Z"
+      "status": "yellow",
+      "lastUpdated": "2025-06-11T13:40:37.537Z"
     },
     {
       "system": "Chase Portal",
@@ -26,6 +26,6 @@
       "lastUpdated": "2025-06-11T13:36:52.616Z"
     }
   ],
-  "lastBuilt": "2025-06-11T13:36:52.616Z",
+  "lastBuilt": "2025-06-11T13:40:37.537Z",
   "lastHealthy": "2025-06-11T13:36:52.616Z"
 }
