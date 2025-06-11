@@ -3,7 +3,7 @@
     {
       "system": "Enrollment Processor",
       "status": "yellow",
-      "lastUpdated": "2025-06-10T20:41:37.701Z"
+      "lastUpdated": "2025-06-11T13:36:01.954Z"
     },
     {
       "system": "Learner Center",
@@ -12,8 +12,8 @@
     },
     {
       "system": "Chase Portal",
-      "status": "green",
-      "lastUpdated": "2025-06-10T19:05:08.651Z"
+      "status": "red",
+      "lastUpdated": "2025-06-11T13:36:01.954Z"
     },
     {
       "system": "Payment Processor",
@@ -26,6 +26,6 @@
       "lastUpdated": "2025-06-10T19:05:08.651Z"
     }
   ],
-  "lastBuilt": "2025-06-10T20:41:37.702Z",
+  "lastBuilt": "2025-06-11T13:36:01.954Z",
   "lastHealthy": "2025-06-10T19:05:08.651Z"
 }
